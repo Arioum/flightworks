@@ -5,10 +5,10 @@ const Airport = () => {
   const airportDetails = useOutletContext();
 
   return (
-    <main>
-      <h6>Airport Found</h6>
+    <>
+      <h6 className='my-[1em] font-[600] text-[1.6rem]'>Airport Found</h6>
       <AirportCard airport={airportDetails} />
-    </main>
+    </>
   );
 };
 
