@@ -5,10 +5,14 @@ const btnStyles = {
   secondary: 'text-white rounded bg-[#6c63ff] px-[4em] py-[1em]',
 };
 
-const Button = ({ type, dest, children, variant, styles }) => {
+const Button = ({ type, dest, target, children, variant, styles }) => {
   if (type === 'link') {
     return (
-      <Link to={`/${dest}`} className={`${btnStyles[variant]} ${styles}`}>
+      <Link
+        to={`${dest}`}
+        className={`${btnStyles[variant]} ${styles}`}
+        target={target}
+      >
         {children}
       </Link>
     );
