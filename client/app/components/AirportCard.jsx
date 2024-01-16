@@ -55,8 +55,7 @@ const AirportCard = ({ airport }) => {
             </Button>
             <Button
               type={'link'}
-              dest={``}
-              target={'blank'}
+              dest={`/schedule/${airport.iata}`}
               variant={'primary'}
               styles={
                 'flex items-center justify-center gap-[.5em] max-w-fit px-0 mt-[10px] md:max-w-[100%]'

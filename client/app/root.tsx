@@ -14,6 +14,8 @@ import Navbar from './components/Navbar';
 import stylesheet from './tailwind.css';
 import styles from './globals.css';
 import { RecoilRoot } from 'recoil';
+import { RecoilEnv } from 'recoil';
+RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: styles },
