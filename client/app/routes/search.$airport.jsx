@@ -1,8 +1,11 @@
-import { useOutletContext } from '@remix-run/react';
+import { memo } from 'react';
+import { useRecoilValue } from 'recoil';
 import AirportCard from '../components/AirportCard';
+import { airportAtom } from '../store/atom/airport';
 
-const Airport = () => {
-  const airportDetails = useOutletContext();
+const Airport = memo(() => {
+  const airportDetails = useRecoilValue(airportAtom);
+  console.log(airportDetails);
 
   return (
     <>
@@ -10,6 +13,6 @@ const Airport = () => {
       <AirportCard airport={airportDetails} />
     </>
   );
-};
+});
 
 export default Airport;

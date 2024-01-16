@@ -1,11 +1,16 @@
 import { Link } from '@remix-run/react';
+import { memo } from 'react';
 
-const Navbar = () => {
+const Navbar = memo(() => {
   return (
     <header className='content-wrapper'>
       <nav className='flex justify-between items-center h-[80px] md:h-[60px]'>
         <Link to={'/'}>
-          <img src='assets/brand-logo.svg' alt='logo' className='w-[250px] md:w-[200px]' />
+          <img
+            src='../assets/brand-logo.svg'
+            alt='logo'
+            className='w-[250px] md:w-[200px]'
+          />
         </Link>
 
         <ul className='flex gap-[5em] font-[600] text-[1rem] md:gap-[2em]'>
@@ -22,6 +27,6 @@ const Navbar = () => {
       </nav>
     </header>
   );
-};
+});
 
 export default Navbar;

@@ -13,6 +13,7 @@ import Navbar from './components/Navbar';
 
 import stylesheet from './tailwind.css';
 import styles from './globals.css';
+import { RecoilRoot } from 'recoil';
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: styles },
@@ -31,7 +32,9 @@ export default function App() {
       </head>
       <body>
         <Navbar />
-        <Outlet />
+        <RecoilRoot>
+          <Outlet />
+        </RecoilRoot>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
