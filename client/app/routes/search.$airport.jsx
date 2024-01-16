@@ -5,7 +5,6 @@ import { airportAtom } from '../store/atom/airport';
 
 const Airport = memo(() => {
   const airportDetails = useRecoilValue(airportAtom);
-  console.log(airportDetails);
 
   return (
     <>
