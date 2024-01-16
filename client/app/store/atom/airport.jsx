@@ -9,10 +9,10 @@ export const airportAtom = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export const airportSelector = selector({
-  key: 'airportSelector',
-  get: ({ get }) => {
-    const airport = get(airportAtom);
-    return airport;
-  },
-});
+// export const airportSelector = selector({
+//   key: 'airportSelector',
+//   get: ({ get }) => {
+//     const airport = get(airportAtom);
+//     return airport;
+//   },
+// });
