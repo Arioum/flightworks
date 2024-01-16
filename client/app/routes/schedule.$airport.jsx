@@ -1,15 +1,14 @@
 import { useRecoilValue } from 'recoil';
 import { airportAtom } from '../store/atom/airport';
 import { FaLocationDot } from 'react-icons/fa6';
-import { useLocation } from '@remix-run/react';
-import ScheduleTable from '../layouts/ScheduleTable';
-import scheduleData from '../arrival-data.json';
+import { Outlet, useLocation } from '@remix-run/react';
 import Button from '../components/Button';
 
 const SchedulePage = () => {
   const airport = useRecoilValue(airportAtom);
   const { pathname } = useLocation();
   const activeIata = pathname.split('/')[2];
+  const isGeneralRoute = pathname === `/schedule/${activeIata}`;
 
   return (
     <main className='content-wrapper'>
@@ -28,11 +27,37 @@ const SchedulePage = () => {
         </div>
       </section>
       <section className='mb-[2em]'>
-        <div className='max-w-[100%] p-[1em] mt-[1em] h-[60px] flex justify-start items-end'>
-          <Button>Arrivals</Button>
-          <Button>Departures</Button>
+        <div className='max-w-[100%] my-[1em] h-[60px] flex justify-start items-end bg-[#dddddd] overflow-hidden rounded-[10px] font-[600] text-[#000]'>
+          <Button
+            type={'link'}
+            dest={`/schedule/${activeIata}`}
+            styles={
+              'h-[60px] w-[200px] flex justify-center items-center border-b-4 border-[#6c63ff]'
+            }
+          >
+            General
+          </Button>
+          <Button
+            type={'link'}
+            dest={`/schedule/${activeIata}/arrivals`}
+            styles={
+              'h-[60px] w-[200px] flex justify-center items-center border-x-4 border-x-[#eee]'
+            }
+          >
+            Arrivals
+          </Button>
+          <Button
+            type={'link'}
+            dest={`/schedule/${activeIata}/departures`}
+            styles={
+              'h-[60px] w-[200px] flex justify-center items-center'
+            }
+          >
+            Departures
+          </Button>
         </div>
-        <ScheduleTable scheduleData={scheduleData} />
+        {isGeneralRoute && <div>general content</div>}
+        <Outlet />
       </section>
     </main>
   );
