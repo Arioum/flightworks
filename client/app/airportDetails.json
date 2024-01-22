@@ -1,0 +1,174 @@
+{
+  "data": {
+    "aircraftImages": null,
+    "airlines": {
+      "codeshare": null
+    },
+    "airport": {
+      "pluginData": {
+        "aircraftCount": {
+          "ground": 2,
+          "onGround": {
+            "total": 2,
+            "visible": 1
+          }
+        },
+        "details": {
+          "airportImages": {
+            "large": [
+              {
+                "copyright": "Siddarth Bhandary",
+                "link": "https://www.jetphotos.com/photo/7088370",
+                "source": "Jetphotos.com",
+                "src": "https://cdn.jetphotos.com/640cb/1/34082_1302099524.jpg"
+              }
+            ],
+            "medium": [
+              {
+                "copyright": "Siddarth Bhandary",
+                "link": "https://www.jetphotos.com/photo/7088370",
+                "source": "Jetphotos.com",
+                "src": "https://cdn.jetphotos.com/400/1/34082_1302099524.jpg"
+              }
+            ],
+            "thumbnails": [
+              {
+                "copyright": "Siddarth Bhandary",
+                "link": "https://www.jetphotos.com/photo/7088370",
+                "source": "Jetphotos.com",
+                "src": "https://cdn.jetphotos.com/200/1/34082_1302099524_tb.jpg"
+              }
+            ]
+          },
+          "code": {
+            "iata": "IXE",
+            "icao": "VOML"
+          },
+          "delayIndex": {
+            "arrivals": null,
+            "departures": null
+          },
+          "name": "Mangalore International Airport",
+          "position": {
+            "country": {
+              "code": "IN",
+              "id": 102,
+              "name": "India"
+            },
+            "elevation": 313,
+            "latitude": 12.95507,
+            "longitude": 74.887611,
+            "region": {
+              "city": "Mangalore"
+            }
+          },
+          "stats": null,
+          "timezone": {
+            "abbr": "IST",
+            "abbrName": "India Standard Time",
+            "isDst": false,
+            "name": "Asia/Kolkata",
+            "offset": 19800
+          },
+          "url": {
+            "homepage": null,
+            "webcam": null,
+            "wikipedia": "https://en.wikipedia.org/wiki/Mangalore_Airport"
+          },
+          "visible": true
+        },
+        "runways": [
+          {
+            "length": {
+              "ft": 8038,
+              "m": 2450
+            },
+            "name": "06",
+            "surface": {
+              "code": "ASPH",
+              "name": "Asphalt"
+            }
+          },
+          {
+            "length": {
+              "ft": 8038,
+              "m": 2450
+            },
+            "name": "24",
+            "surface": {
+              "code": "ASPH",
+              "name": "Asphalt"
+            }
+          }
+        ],
+        "satelliteImage": "https://maps.googleapis.com/maps/api/staticmap?center=12.954632,74.886765&zoom=14&scale=1&maptype=satellite&size=334x285&client=gme-flightradar24ab1&channel=30&signature=poc_z-_IXR9wi_yF21LxEj92Ml0=",
+        "satelliteImageProperties": {
+          "center": [12.954632, 74.886765],
+          "scale": 1,
+          "zoom": 14
+        },
+        "schedule": null,
+        "scheduledRoutesStatistics": {
+          "airportsServed": 14,
+          "countriesServed": 7,
+          "topRoute": {
+            "count": 49,
+            "from": "IXE",
+            "to": "BLR"
+          },
+          "totalFlights": 160
+        },
+        "weather": {
+          "cached": 1705939432,
+          "dewpoint": {
+            "celsius": 22,
+            "fahrenheit": 72
+          },
+          "elevation": {
+            "ft": 335,
+            "m": 102
+          },
+          "flight": {
+            "category": "MVFR"
+          },
+          "humidity": 79,
+          "metar": "VOML 221600Z 36006KT 6000 NSC 26/22 Q1014 NOSIG",
+          "pressure": {
+            "hg": 30,
+            "hpa": 1014
+          },
+          "qnh": 1014,
+          "sky": {
+            "condition": {
+              "text": "Clear"
+            },
+            "visibility": {
+              "km": 6000000,
+              "mi": 4,
+              "nmi": 3
+            }
+          },
+          "temp": {
+            "celsius": 26,
+            "fahrenheit": 79
+          },
+          "time": 1705939200,
+          "wind": {
+            "direction": {
+              "degree": 360,
+              "text": "From north"
+            },
+            "speed": {
+              "kmh": 11,
+              "kts": 6,
+              "mph": 7,
+              "text": "Mod"
+            }
+          }
+        }
+      }
+    }
+  },
+  "message": "Successful",
+  "status": true
+}
