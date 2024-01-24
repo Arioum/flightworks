@@ -18,16 +18,16 @@ const SchedulePage = () => {
   const img = airportInfo.details.airportImages.medium[0].src;
 
   return (
-    <main className='content-wrapper'>
-      <section className='max-w-[100%] rounded-[10px] p-[1em] mt-[1em] h-[250px] flex justify-between items-center bg-[#202020] overflow-hidden'>
-        <div>
+    <main className='content-wrapper md:px-[1em]'>
+      <section className='max-w-[100%] rounded-[10px] p-[1em] mt-[1em] max-h-[330px] flex gap-[1em] justify-between items-center bg-[#202020] overflow-hidden md:flex-col'>
+        <div className='md:order-2'>
           <h1
             className='text-[2rem] text-[#fff] font-[700] md:text-[1.4rem]'
             suppressHydrationWarning={true}
           >
             {airport.name} ({airport.iata}/{airport.icao})
           </h1>
-          <p className='text-[1.2rem] font-[600] flex items-center gap-[.4em] text-[#e2e2e2] md:text-[1rem]'>
+          <p className='text-[1.2rem] font-[600] flex items-center md:justify-center gap-[.4em] text-[#e2e2e2] md:text-[1rem]'>
             <FaLocationDot />
             {airport.location} ({airport.country_iso})
           </p>
@@ -35,16 +35,16 @@ const SchedulePage = () => {
         <img
           src={img}
           alt=''
-          className='relative right-0 h-[220px] overflow-hidden'
+          className='relative right-0 max-h-[220px] overflow-hidden md:order-1 max-w-[100%] rounded-[10px]'
         />
       </section>
       <section className='mb-[2em]'>
-        <div className='max-w-[100%] my-[1em] h-[60px] flex justify-start items-end bg-[#dddddd] overflow-hidden rounded-[10px] font-[600] text-[#000]'>
+        <div className='max-w-[100%] my-[1em] h-[60px] flex justify-start items-end bg-[#202020] overflow-hidden rounded-[10px] font-[600] text-[#000]'>
           <Button
             type={'link'}
             dest={`/schedule/${activeIata}`}
-            styles={`h-[60px] w-[200px] flex justify-center items-center border-b-4 ${
-              isGeneralRoute && 'border-[#6c63ff]'
+            styles={`h-[60px] w-[200px] text-[#fff] flex justify-center items-center border-b-4 border-b-[#202020] ${
+              isGeneralRoute && 'border-b-[#6c63ff]'
             }`}
           >
             General
@@ -52,8 +52,8 @@ const SchedulePage = () => {
           <Button
             type={'link'}
             dest={`/schedule/${activeIata}/arrivals`}
-            styles={`h-[60px] w-[200px] flex justify-center items-center border-b-4 ${
-              isArrivalsRoute && 'border-[#6c63ff]'
+            styles={`h-[60px] w-[200px] text-[#fff] flex justify-center items-center border-b-4 border-b-[#202020] ${
+              isArrivalsRoute && 'border-b-[#6c63ff]'
             }`}
           >
             Arrivals
@@ -61,8 +61,8 @@ const SchedulePage = () => {
           <Button
             type={'link'}
             dest={`/schedule/${activeIata}/departures`}
-            styles={`h-[60px] w-[200px] flex justify-center items-center border-b-4 ${
-              isDeparturesRoute && 'border-[#6c63ff]'
+            styles={`h-[60px] w-[200px] text-[#fff] flex justify-center items-center border-b-4 border-b-[#202020] ${
+              isDeparturesRoute && 'border-b-[#6c63ff]'
             }`}
           >
             Departures
