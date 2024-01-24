@@ -4,7 +4,7 @@ const TableHeader = () => {
   return (
     <tr className='bg-[#F2F2F2] text-[14px] leading-[20px] text-[#4D4D4D] px-[10px] py-[12px] grid gap-[40px] grid-cols-5 rounded-[4px]'>
       <th className='flex grow font-[500]'>Time</th>
-      <th className='flex grow font-[500] flex gap-[4px] items-center'>
+      <th className='flex grow font-[500] gap-[4px] items-center'>
         Flight
       </th>
       <th className='flex grow justify-start font-[500]'>From</th>

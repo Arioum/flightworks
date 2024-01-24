@@ -18,7 +18,7 @@ const TableEntry = ({ entry }) => {
         {position.region.city}
         <span className='text-[#146EB4]'>({code.iata})</span>
       </td>
-      <td className='flex grow justify-start'>
+      <td className='flex grow justify-start items-center'>
         {logo ? (
           <img src={logo} alt={name} className='w-[60px] h-fit' />
         ) : (
