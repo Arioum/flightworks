@@ -2,7 +2,7 @@ import { Link } from '@remix-run/react';
 
 const Data = () => {
   return (
-    <main className='content-wrapper'>
+    <main className='content-wrapper md:px-[1em]'>
       <section>
         <h1 className='text-[1.8rem] mt-[2em] font-[500]'>Data source</h1>
         <hr className='py-[1em]' />

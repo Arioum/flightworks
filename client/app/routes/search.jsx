@@ -2,7 +2,7 @@ import SearchAirport from '../layouts/SearchAirport';
 
 const Search = () => {
   return (
-    <main>
+    <main className='content-wrapper py-[2em] md:px-[1em]'>
       <SearchAirport />
     </main>
   );

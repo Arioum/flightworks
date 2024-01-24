@@ -1,6 +1,6 @@
 const usage = () => {
   return (
-    <main className='content-wrapper'>
+    <main className='content-wrapper md:px-[1em]'>
       <h1 className='text-[1.8rem] mt-[2em] font-[500]'>Usage Limitatons</h1>
       <hr className='py-[1em]' />
       <ul className='flex flex-col gap-[1em]'>
