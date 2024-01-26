@@ -2,9 +2,9 @@ import { useRecoilValue } from 'recoil';
 import { airportAtom } from '../store/atom/airport';
 import { FaLocationDot } from 'react-icons/fa6';
 import { Outlet, useLocation } from '@remix-run/react';
-import Button from '../components/Button';
 import GeneralTab from '../layouts/GeneralTab';
 import airportData from '../airportDetails.json';
+import AirportTabs from '../layouts/AirportTabs';
 
 const SchedulePage = () => {
   const airport = useRecoilValue(airportAtom);
@@ -35,39 +35,16 @@ const SchedulePage = () => {
         <img
           src={img}
           alt=''
-          className='relative right-0 max-h-[220px] overflow-hidden md:order-1 max-w-[100%] rounded-[10px]'
+          className='relative right-0 max-h-[220px] overflow-hidden md:order-1 max-w-[100%] rounded-[6px]'
         />
       </section>
       <section className='mb-[2em]'>
-        <div className='max-w-[100%] my-[1em] h-[60px] flex justify-start items-end bg-[#202020] overflow-hidden rounded-[10px] font-[600] text-[#000]'>
-          <Button
-            type={'link'}
-            dest={`/schedule/${activeIata}`}
-            styles={`h-[60px] w-[200px] text-[#fff] flex justify-center items-center border-b-4 border-b-[#202020] ${
-              isGeneralRoute && 'border-b-[#6c63ff]'
-            }`}
-          >
-            General
-          </Button>
-          <Button
-            type={'link'}
-            dest={`/schedule/${activeIata}/arrivals`}
-            styles={`h-[60px] w-[200px] text-[#fff] flex justify-center items-center border-b-4 border-b-[#202020] ${
-              isArrivalsRoute && 'border-b-[#6c63ff]'
-            }`}
-          >
-            Arrivals
-          </Button>
-          <Button
-            type={'link'}
-            dest={`/schedule/${activeIata}/departures`}
-            styles={`h-[60px] w-[200px] text-[#fff] flex justify-center items-center border-b-4 border-b-[#202020] ${
-              isDeparturesRoute && 'border-b-[#6c63ff]'
-            }`}
-          >
-            Departures
-          </Button>
-        </div>
+        <AirportTabs
+          activeIata={activeIata}
+          isGeneralRoute={isGeneralRoute}
+          isArrivalsRoute={isArrivalsRoute}
+          isDeparturesRoute={isDeparturesRoute}
+        />
         {isGeneralRoute && <GeneralTab />}
         <Outlet />
       </section>

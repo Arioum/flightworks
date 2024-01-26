@@ -21,7 +21,6 @@ const ScheduleTable = ({ scheduleData }) => {
           <TableEntry entry={entry} key={index} />
         ))}
       </table>
-      {/* <Pagination /> */}
     </div>
   );
 };
