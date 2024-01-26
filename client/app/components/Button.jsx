@@ -5,7 +5,7 @@ const btnStyles = {
   secondary: 'text-white rounded bg-[#6c63ff] px-[4em] py-[1em]',
 };
 
-const Button = ({ type, dest, target, children, variant, styles }) => {
+const Button = ({ type, dest, target, children, variant, styles, onClick }) => {
   if (type === 'link') {
     return (
       <Link
@@ -19,7 +19,9 @@ const Button = ({ type, dest, target, children, variant, styles }) => {
   }
 
   return (
-    <button className={`${btnStyles[variant]} ${styles}`}>{children}</button>
+    <button className={`${btnStyles[variant]} ${styles}`} onClick={onClick}>
+      {children}
+    </button>
   );
 };
 

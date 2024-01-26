@@ -1,16 +1,15 @@
-import airportDetails from '../airportDetails.json';
+// import airportDetails from '../airportDetails.json';
 import LabelCards from '../components/LabelCards';
 
-const airport = airportDetails.data.airport.pluginData;
-const onGround = airport.aircraftCount.ground;
-const elevation = airport.details.position.elevation;
-const wiki = airport.details.url.wikipedia;
-const routes = airport.scheduledRoutesStatistics;
-const runways = airport.runways; // array of obj where each one is a runway
-const weather = airport.weather;
-const weatherTime = new Date(weather.cached).toLocaleTimeString();
+const GeneralTab = ({airportDetails}) => {
+  const airport = airportDetails.data.airport.pluginData;
+  const onGround = airport.aircraftCount.ground;
+  const elevation = airport.details.position.elevation;
+  const wiki = airport.details.url.wikipedia;
+  const routes = airport.scheduledRoutesStatistics;
+  const runways = airport.runways;
+  const weather = airport.weather;
 
-const GeneralTab = () => {
   return (
     <section className='rounded-[10px] overflow-hidden grid  place-items-start grid-cols-3 md:grid-cols-1 gap-[1em]'>
       <div className='w-[100%] max-h-fit '>
@@ -91,7 +90,7 @@ const GeneralTab = () => {
           </div>
         </LabelCards>
       </div>
-      
+
       <div className='w-[100%] max-h-fit'>
         <LabelCards className={'grid grid-cols-1 gap-[.6em]'}>
           <div>
