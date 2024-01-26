@@ -2,7 +2,6 @@ import airportDetails from '../airportDetails.json';
 import LabelCards from '../components/LabelCards';
 
 const airport = airportDetails.data.airport.pluginData;
-const img = airport.details.airportImages.medium[0].src;
 const onGround = airport.aircraftCount.ground;
 const elevation = airport.details.position.elevation;
 const wiki = airport.details.url.wikipedia;
@@ -13,8 +12,8 @@ const weatherTime = new Date(weather.cached).toLocaleTimeString();
 
 const GeneralTab = () => {
   return (
-    <section className='rounded-[10px] overflow-hidden grid grid-cols-3 md:grid-cols-1 sm:grid-cols-1 gap-[1em]'>
-      <div className='w-[100%] min-h-fit]'>
+    <section className='rounded-[10px] overflow-hidden grid  place-items-start grid-cols-3 md:grid-cols-1 gap-[1em]'>
+      <div className='w-[100%] max-h-fit '>
         <LabelCards className={'grid grid-cols-2 gap-[.6em]'}>
           <div>
             <h4 className='font-[700]'>Airports served</h4>
@@ -38,7 +37,7 @@ const GeneralTab = () => {
         </LabelCards>
       </div>
 
-      <div className='w-[100%] min-h-fit'>
+      <div className='w-[100%] max-h-fit'>
         <LabelCards className={'grid grid-cols-2 gap-[.6em]'}>
           <div>
             <h4 className='font-[700]'>Dew point</h4>
@@ -64,20 +63,8 @@ const GeneralTab = () => {
           </div>
         </LabelCards>
       </div>
-      <div className='w-[100%] min-h-fit'>
-        <LabelCards className={'grid grid-cols-1 gap-[.6em]'}>
-          <div>
-            <h4 className='font-[700]'>QNH</h4>
-            <p>{weather.qnh}</p>
-          </div>
-          <div>
-            <h4 className='font-[700]'>METAR</h4>
-            <p>{weather.metar}</p>
-          </div>
-        </LabelCards>
-      </div>
 
-      <div className='w-[100%] min-h-fit'>
+      <div className='w-[100%] max-h-fit'>
         <LabelCards className={'grid grid-cols-2 gap-[.6em]'}>
           <div>
             <h4 className='font-[700]'>Skies</h4>
@@ -104,8 +91,21 @@ const GeneralTab = () => {
           </div>
         </LabelCards>
       </div>
+      
+      <div className='w-[100%] max-h-fit'>
+        <LabelCards className={'grid grid-cols-1 gap-[.6em]'}>
+          <div>
+            <h4 className='font-[700]'>QNH</h4>
+            <p>{weather.qnh}</p>
+          </div>
+          <div>
+            <h4 className='font-[700]'>METAR</h4>
+            <p>{weather.metar}</p>
+          </div>
+        </LabelCards>
+      </div>
 
-      <div className='w-[100%] min-h-fit'>
+      <div className='w-[100%] max-h-fit'>
         <LabelCards className={'grid grid-cols-1 gap-[.6em]'}>
           <h4 className='font-[700]'>Runways</h4>
           {runways.map((runway, index) => (
@@ -128,7 +128,7 @@ const GeneralTab = () => {
         </LabelCards>
       </div>
 
-      <div className='w-[100%] min-h-fit'>
+      <div className='w-[100%] max-h-fit'>
         <LabelCards className={'grid grid-cols-1 gap-[.6em]'}>
           <h4 className='font-[700]'>Arial View</h4>
           <img
