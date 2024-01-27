@@ -1,14 +1,38 @@
 import { atom, selector } from 'recoil';
+import { recoilPersist } from 'recoil-persist';
 
-export const scheduleAtom = atom({
-  key: 'scheduleAtom',
-  default: {},
+const { persistAtom } = recoilPersist();
+
+export const arrivalsAtom = atom({
+  key: 'arrivalsAtom',
+  default: null,
+  effects_UNSTABLE: [persistAtom],
 });
 
-export const scheduleSelector = selector({
-  key: 'scheduleSelector',
+export const arrivalsSelector = selector({
+  key: 'arrivalsSelector',
   get: ({ get }) => {
-    const schedules = get(scheduleAtom);
-    return schedules;
+    const arrivalsData = get(arrivalsAtom);
+    const flightData =
+      arrivalsData.data.airport.pluginData.schedule.arrivals.data;
+    return flightData;
   },
+});
+
+export const moreArrivalsAtom = atom({
+  key: 'moreArrivalsAtom',
+  default: {},
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const departuresAtom = atom({
+  key: 'departuresAtom',
+  default: {},
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const moreDeparturesAtom = atom({
+  key: 'moreDeparturesAtom',
+  default: {},
+  effects_UNSTABLE: [persistAtom],
 });
