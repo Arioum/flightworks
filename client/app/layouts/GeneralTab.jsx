@@ -1,4 +1,3 @@
-// import airportDetails from '../airportDetails.json';
 import LabelCards from '../components/LabelCards';
 
 const GeneralTab = ({airportDetails}) => {
@@ -131,7 +130,7 @@ const GeneralTab = ({airportDetails}) => {
         <LabelCards className={'grid grid-cols-1 gap-[.6em]'}>
           <h4 className='font-[700]'>Arial View</h4>
           <img
-            src='https://maps.googleapis.com/maps/api/staticmap?center=12.954632,74.886765&zoom=14&scale=1&maptype=satellite&size=334x285&client=gme-flightradar24ab1&channel=30&signature=poc_z-_IXR9wi_yF21LxEj92Ml0='
+            src={airport.satelliteImage}
             alt='airport-arial-view'
             className='rounded-[14px] w-[100%]'
           />

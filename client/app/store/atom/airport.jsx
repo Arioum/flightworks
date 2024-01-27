@@ -16,3 +16,9 @@ export const airportAtom = atom({
 //     return airport;
 //   },
 // });
+
+export const airportDetailsAtom = atom({
+  key: 'airportDetailsAtom',
+  default: {},
+  effects_UNSTABLE: [persistAtom],
+});
