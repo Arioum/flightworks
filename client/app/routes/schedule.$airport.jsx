@@ -1,54 +1,59 @@
+import { useEffect } from 'react';
+import { Outlet, useLocation, useLoaderData } from '@remix-run/react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { Outlet, useLocation } from '@remix-run/react';
+import { airportDetailsAtom } from '../store/atom/airport';
 import axios from 'axios';
-import { airportAtom } from '../store/atom/airport';
 import AirportHeader from '../layouts/AirportHeader';
 import AirportTabs from '../layouts/AirportTabs';
 import GeneralTab from '../layouts/GeneralTab';
-import airportData from '../airportDetails.json';
+
+export const loader = async ({ req, params }) => {
+  const apiKey = process.env.RAPID_API_KEY_FR24;
+  return apiKey;
+};
 
 const SchedulePage = () => {
-  const airport = useRecoilValue(airportAtom);
-  // const setAirportData = useSetRecoilState()
+  const apiKey = useLoaderData();
+  const setAirportData = useSetRecoilState(airportDetailsAtom);
+  const airportData = useRecoilValue(airportDetailsAtom);
 
   const { pathname } = useLocation();
   const activeIata = pathname.split('/')[2];
+
   const isGeneralRoute = pathname === `/schedule/${activeIata}`;
-  const isArrivalsRoute = pathname === `/schedule/${activeIata}/arrivals`;
-  const isDeparturesRoute = pathname === `/schedule/${activeIata}/departures`;
 
-  const airportInfo = airportData.data.airport.pluginData;
-  const img = airportInfo.details.airportImages.medium[0].src;
-
-  // const options = {
-  //   method: 'GET',
-  //   url: 'https://flightradar24-com.p.rapidapi.com/airports/search',
-  //   params: {q: 'New York'},
-  //   headers: {
-  //     'X-RapidAPI-Key': 'd10a8fae0fmsh6f4a5491a8f4badp1ad914jsn45a60477551c',
-  //     'X-RapidAPI-Host': 'flightradar24-com.p.rapidapi.com'
-  //   }
-  // };
-
-  // try {
-  //   const response = await axios.request(options);
-  //   console.log(response.data);
-  // } catch (error) {
-  //   console.error(error);
-  // }
+  useEffect(() => {
+    async function getAiportDetails() {
+      await axios
+        .request({
+          method: 'GET',
+          url: 'https://flightradar24-com.p.rapidapi.com/airports/detail',
+          params: { airport_id: `${activeIata}` },
+          headers: {
+            'X-RapidAPI-Key': apiKey,
+            'X-RapidAPI-Host': 'flightradar24-com.p.rapidapi.com',
+          },
+        })
+        .then((res) => {
+          setAirportData(res.data);
+        })
+        .catch((err) => console.log(err));
+    }
+    getAiportDetails();
+  }, []);
 
   return (
     <main className='content-wrapper md:px-[1em]'>
-      <AirportHeader airport={airport} img={img} />
+      <AirportHeader airportData={airportData} key={pathname} />
       <section className='mb-[2em]'>
         <AirportTabs
           activeIata={activeIata}
-          isGeneralRoute={isGeneralRoute}
-          isArrivalsRoute={isArrivalsRoute}
-          isDeparturesRoute={isDeparturesRoute}
+          isGeneralRoute={pathname === `/schedule/${activeIata}`}
+          isArrivalsRoute={pathname === `/schedule/${activeIata}/arrivals`}
+          isDeparturesRoute={pathname === `/schedule/${activeIata}/departures`}
         />
         {isGeneralRoute && <GeneralTab airportDetails={airportData} />}
-        <Outlet />
+        <Outlet context={activeIata} />
       </section>
     </main>
   );
