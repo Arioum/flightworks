@@ -21,18 +21,28 @@ export const arrivalsSelector = selector({
 
 export const moreArrivalsAtom = atom({
   key: 'moreArrivalsAtom',
-  default: {},
+  default: null,
   effects_UNSTABLE: [persistAtom],
 });
 
 export const departuresAtom = atom({
   key: 'departuresAtom',
-  default: {},
+  default: null,
   effects_UNSTABLE: [persistAtom],
+});
+
+export const departuresSelector = selector({
+  key: 'departuresSelector',
+  get: ({ get }) => {
+    const departuresData = get(departuresAtom);
+    const flightData =
+      departuresData.data.airport.pluginData.schedule.departures.data;
+    return flightData;
+  },
 });
 
 export const moreDeparturesAtom = atom({
   key: 'moreDeparturesAtom',
-  default: {},
+  default: null,
   effects_UNSTABLE: [persistAtom],
 });

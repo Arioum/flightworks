@@ -17,9 +17,9 @@ export const loader = async ({ req, params }) => {
 const Arrivals = () => {
   const activeIata = useOutletContext();
   const apiKey = useLoaderData();
-  
+
   const setArrivalsData = useSetRecoilState(arrivalsAtom);
-  const arrivalsData = useRecoilValue(arrivalsAtom);
+  const arrivalsData = useRecoilValue(arrivalsSelector);
 
   // const moreArrivalsData = useRecoilValue(moreArrivalsAtom);
   // const setMoreArrivalsData = useSetRecoilState(moreArrivalsAtom);
@@ -46,7 +46,7 @@ const Arrivals = () => {
 
   return (
     <>
-      {arrivalsData ? <ScheduleTable arrivalsData={arrivalsData} /> : 'loading'}
+      {arrivalsData ? <ScheduleTable scheduleData={arrivalsData} /> : 'Loading'}
     </>
   );
 };
