@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useOutletContext, useLoaderData } from '@remix-run/react';
 import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { departuresAtom, departuresSelector } from '../store/atom/schedule';
