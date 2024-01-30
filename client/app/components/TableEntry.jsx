@@ -6,7 +6,7 @@ const TableEntry = ({ entry, currentRoute }) => {
   const { callsign, number } = flight.identification;
   const { logo, name = '' } = flight.owner || {};
   const { text, icon } = flight.status;
-
+  
   const { code, position } =
     currentRoute === 'arrivals'
       ? flight.airport.origin
@@ -22,7 +22,7 @@ const TableEntry = ({ entry, currentRoute }) => {
         {position.region.city}
         <span className='text-[#146EB4]'>({code.iata})</span>
       </td>
-      <td className='flex grow justify-start items-center max-h-[30px]'>
+      <td className='flex grow justify-start items-center h-[30px]'>
         {logo ? (
           <img src={logo} alt={name} className='max-w-[60px] max-h-[100%]' />
         ) : (
