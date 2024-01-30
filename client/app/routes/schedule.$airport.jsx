@@ -44,7 +44,9 @@ const SchedulePage = () => {
 
   return (
     <main className='content-wrapper md:px-[1em]'>
-      <AirportHeader airportData={airportData} key={pathname} />
+      {airportData && (
+        <AirportHeader airportData={airportData} key={pathname} />
+      )}
       <section className='mb-[2em]'>
         <AirportTabs
           activeIata={activeIata}
