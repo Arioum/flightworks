@@ -21,7 +21,7 @@ const Data = () => {
             to='https://rapidapi.com/finestoreuk/api/flight-tracker-radar'
             target='blank'
           >
-            https://rapidapi.com/finestoreuk/api/flight-tracker-radar
+            https://rapidapi.com/ntd119/api/flightradar24-com/
           </Link>
         </div>
       </section>
