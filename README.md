@@ -1,4 +1,5 @@
-## FlightWorks
+## ![flightworks-banner](https://github.com/Arioum/flightworks/assets/95125149/55a004a0-876b-40aa-aec8-543c5038a7ed)
+FlightWorks
 
 ### TechStack:
 
