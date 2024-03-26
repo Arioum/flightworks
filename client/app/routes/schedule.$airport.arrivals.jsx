@@ -8,6 +8,7 @@ import {
   moreArrivalsAtom,
 } from '../store/atom/schedule';
 import ScheduleTable from '../layouts/ScheduleTable';
+import Loader from '../components/Loader';
 
 export const loader = async ({ req, params }) => {
   const apiKey = process.env.RAPID_API_KEY_FR24;
@@ -20,6 +21,7 @@ const Arrivals = () => {
 
   const setArrivalsData = useSetRecoilState(arrivalsAtom);
   const arrivalsData = useRecoilValue(arrivalsSelector);
+  console.log('arrivalsData', arrivalsData);
 
   // const moreArrivalsData = useRecoilValue(moreArrivalsAtom);
   // const setMoreArrivalsData = useSetRecoilState(moreArrivalsAtom);
@@ -37,6 +39,7 @@ const Arrivals = () => {
           },
         })
         .then((res) => {
+          console.log(res.data);
           setArrivalsData(res.data);
         })
         .catch((err) => console.log(err));
@@ -46,7 +49,11 @@ const Arrivals = () => {
 
   return (
     <>
-      {arrivalsData ? <ScheduleTable scheduleData={arrivalsData} /> : 'Loading'}
+      {arrivalsData ? (
+        <ScheduleTable scheduleData={arrivalsData} />
+      ) : (
+        <Loader />
+      )}
     </>
   );
 };
