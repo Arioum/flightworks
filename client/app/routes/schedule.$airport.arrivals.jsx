@@ -38,7 +38,7 @@ const Arrivals = () => {
           },
         })
         .then((res) => {
-          setArrivalsData(res.data);
+          setArrivalsData(res?.data);
         })
         .catch((err) => console.log(err));
     }
