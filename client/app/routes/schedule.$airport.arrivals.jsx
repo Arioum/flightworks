@@ -21,7 +21,6 @@ const Arrivals = () => {
 
   const setArrivalsData = useSetRecoilState(arrivalsAtom);
   const arrivalsData = useRecoilValue(arrivalsSelector);
-  console.log('arrivalsData', arrivalsData);
 
   // const moreArrivalsData = useRecoilValue(moreArrivalsAtom);
   // const setMoreArrivalsData = useSetRecoilState(moreArrivalsAtom);
@@ -32,14 +31,13 @@ const Arrivals = () => {
         .request({
           method: 'GET',
           url: 'https://flightradar24-com.p.rapidapi.com/airports/arrivals',
-          params: { airport_id: `ixe` },
+          params: { airport_id: `${activeIata}` },
           headers: {
             'X-RapidAPI-Key': apiKey,
             'X-RapidAPI-Host': 'flightradar24-com.p.rapidapi.com',
           },
         })
         .then((res) => {
-          console.log(res.data);
           setArrivalsData(res.data);
         })
         .catch((err) => console.log(err));

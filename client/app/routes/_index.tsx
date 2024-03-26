@@ -4,7 +4,7 @@ import HeroSection from '../layouts/HeroSection';
 export const meta: MetaFunction = () => {
   return [
     { title: 'FlightWorks' },
-    { name: 'description', content: 'Welcome to Remix!' },
+    { name: 'description', content: 'Check airport status' },
   ];
 };
 
