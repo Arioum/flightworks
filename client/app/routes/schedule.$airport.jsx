@@ -20,7 +20,6 @@ const SchedulePage = () => {
 
   const { pathname } = useLocation();
   const activeIata = pathname.split('/')[2];
-  console.log('activeIata', activeIata);
 
   const isGeneralRoute = pathname === `/schedule/${activeIata}`;
 
