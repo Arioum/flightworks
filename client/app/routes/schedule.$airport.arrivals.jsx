@@ -29,6 +29,7 @@ const Arrivals = () => {
 
   useEffect(() => {
     async function getArrivals() {
+      console.log('efffect');
       await axios
         .request({
           method: 'GET',
@@ -49,6 +50,7 @@ const Arrivals = () => {
         .catch((err) => console.log(err));
     }
     getArrivals();
+    console.log('efffect');
   }, []);
 
   return (
