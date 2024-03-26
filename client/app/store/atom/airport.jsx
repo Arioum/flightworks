@@ -5,13 +5,13 @@ const { persistAtom } = recoilPersist();
 
 export const airportAtom = atom({
   key: 'airportAtom',
-  default: {},
+  default: null,
   effects_UNSTABLE: [persistAtom],
 });
 
 export const airportDetailsAtom = atom({
   key: 'airportDetailsAtom',
-  default: {},
+  default: null,
   effects_UNSTABLE: [persistAtom],
 });
 

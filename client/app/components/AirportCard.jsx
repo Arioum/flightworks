@@ -12,6 +12,7 @@ import Button from './Button';
 const AirportCard = ({ airport }) => {
   const [mounted, setMounted] = useState(false);
   const { latitude, longitude } = airport;
+  
   useEffect(() => {
     setMounted(true);
   }, []);
