@@ -40,8 +40,10 @@ const Arrivals = () => {
           },
         })
         .then((res) => {
+          console.log('hi');
           console.log(res);
           console.log(res.data);
+          console.log('hi');
           setArrivalsData(res?.data);
         })
         .catch((err) => console.log(err));
