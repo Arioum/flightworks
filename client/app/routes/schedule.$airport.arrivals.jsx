@@ -18,6 +18,8 @@ export const loader = async ({ req, params }) => {
 const Arrivals = () => {
   const activeIata = useOutletContext();
   const apiKey = useLoaderData();
+  console.log(activeIata);
+  console.log(apiKey);
 
   const setArrivalsData = useSetRecoilState(arrivalsAtom);
   const arrivalsData = useRecoilValue(arrivalsSelector);
@@ -38,6 +40,8 @@ const Arrivals = () => {
           },
         })
         .then((res) => {
+          console.log(res);
+          console.log(res.data);
           setArrivalsData(res?.data);
         })
         .catch((err) => console.log(err));
