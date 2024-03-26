@@ -32,7 +32,7 @@ const Arrivals = () => {
         .request({
           method: 'GET',
           url: 'https://flightradar24-com.p.rapidapi.com/airports/arrivals',
-          params: { airport_id: `${activeIata}` },
+          params: { airport_id: `${ixe}` },
           headers: {
             'X-RapidAPI-Key': apiKey,
             'X-RapidAPI-Host': 'flightradar24-com.p.rapidapi.com',
