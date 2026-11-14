@@ -1,24 +1,5 @@
-import { memo } from 'react';
-import { useRecoilValue } from 'recoil';
-import { airportAtom } from '../store/atom/airport';
-import AirportCard from '../components/AirportCard';
-import Loader from '../components/Loader';
+import { redirect } from '@remix-run/node';
 
-const Airport = memo(() => {
-  const airportDetails = useRecoilValue(airportAtom);
-
-  return (
-    <>
-      {airportDetails ? (
-        <div>
-          <h6 className='my-[1em] font-[600] text-[1.6rem]'>Airport Found</h6>
-          <AirportCard airport={airportDetails} />
-        </div>
-      ) : (
-        <Loader />
-      )}
-    </>
-  );
-});
-
-export default Airport;
+// Old search result URLs (/search/ixe) now go straight to the airport page.
+export const loader = ({ params }) =>
+  redirect(`/schedule/${(params.airport ?? '').toUpperCase()}`);

@@ -1,29 +1,23 @@
 import { Link } from '@remix-run/react';
 import { memo } from 'react';
 import BrandLogo from '../assets/brand-logo.svg';
+import AirportSearch from './AirportSearch';
 
+// Lean top bar: logo + airport search. Secondary links live in the footer.
+// z-index sits above Leaflet's map controls (z-index 1000).
 const Navbar = memo(() => {
   return (
-    <header className='content-wrapper'>
-      <nav className='flex justify-between items-center h-[80px] md:h-[60px]'>
-        <Link to={'/'}>
-          <img src={BrandLogo} alt='logo' className='w-[250px] md:w-[200px]' />
+    <header className='sticky top-0 z-[1100] bg-[#fff]/95 backdrop-blur border-b-[1px] border-[#EDEDED]'>
+      <nav className='content-wrapper flex items-center justify-between gap-[24px] h-[64px] md:h-auto md:py-[12px] md:flex-wrap md:gap-[12px]'>
+        <Link to='/' aria-label='FlightWorks home' className='shrink-0'>
+          <img src={BrandLogo} alt='FlightWorks' className='w-[170px] md:w-[140px]' />
         </Link>
-
-        <ul className='flex gap-[5em] font-[600] text-[1rem] md:gap-[2em]'>
-          <li>
-            <Link to={'/data'}>Data</Link>
-          </li>
-          <li>
-            <Link to={'/usage'}>Usage</Link>
-          </li>
-          <li>
-            <Link to={'/contact'}>Contact</Link>
-          </li>
-        </ul>
+        <AirportSearch className='w-[340px] md:w-full' />
       </nav>
     </header>
   );
 });
+
+Navbar.displayName = 'Navbar';
 
 export default Navbar;

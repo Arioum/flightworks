@@ -1,26 +1,23 @@
-import { atom, selector } from 'recoil';
+import { atom } from 'recoil';
 import { recoilPersist } from 'recoil-persist';
 
 const { persistAtom } = recoilPersist();
 
+// Both atoms hold { iata, response, fetchedAt } (see useAirportResource), so a
+// stored response is only ever used for the airport it was fetched for.
+// Values persisted by older versions (raw responses) have no `iata` and are
+// simply refetched.
+
+// Airport Info API: address, phone.
 export const airportAtom = atom({
   key: 'airportAtom',
   default: null,
   effects_UNSTABLE: [persistAtom],
 });
 
+// Flightradar24 airport detail: name, images, weather, runways, stats.
 export const airportDetailsAtom = atom({
   key: 'airportDetailsAtom',
   default: null,
   effects_UNSTABLE: [persistAtom],
-});
-
-export const airportImageSelector = selector({
-  key: 'airportImageSelector',
-  get: ({ get }) => {
-    const arrivalsData = get(airportDetailsAtom);
-    const airportImage =
-      arrivalsData.data.airport.pluginData.details.airportImages.medium[0].src;
-    return airportImage;
-  },
 });

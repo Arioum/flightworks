@@ -1,23 +1,27 @@
-import Button from '../components/Button';
+import PopularAirports from '../components/PopularAirports';
 
 const HeroSection = () => {
   return (
-    <section className='content-wrapper h-[calc(100vh-160px)] grid grid-cols-2 py-[8em] md:grid-cols-1 md:gap-[2em]'>
-      <div className='flex flex-col justify-center gap-6 md:order-2 md:items-center'>
-        <h1 className='text-5xl font-[900] leading-[1.4] xl:text-4.5xl lg:text-4xl md:text-center'>
-          Get status of airports and flights from around the world
+    <section className='content-wrapper grid grid-cols-2 items-center gap-[48px] py-[88px] lg:py-[56px] md:grid-cols-1 md:gap-[24px] md:py-[32px]'>
+      <div className='flex flex-col gap-[20px] md:order-2'>
+        <h1 className='text-5xl font-[800] leading-[1.15] tracking-[-0.02em] text-[#202020] lg:text-4xl'>
+          Airport arrivals, departures and info, worldwide
         </h1>
-        <Button
-          variant={'secondary'}
-          type={'link'}
-          dest={'search'}
-          styles='max-w-fit'
-        >
-          Search now!
-        </Button>
+        <p className='text-[18px] leading-[28px] text-[#4D4D4D] md:text-[16px]'>
+          Search any airport by its 3-letter code in the bar above, or start
+          with one of these:
+        </p>
+        <PopularAirports />
+        <p className='text-[13px] text-[#808080] md:hidden'>
+          Tip: press{' '}
+          <kbd className='px-[6px] rounded-[4px] border-[1px] border-[#DADADA] text-[11px] font-[600]'>
+            /
+          </kbd>{' '}
+          anywhere to jump to search.
+        </p>
       </div>
-      <div className='max-w-[40em] flex mx-auto'>
-        <img src='assets/hero.svg' alt='hero' />
+      <div className='max-w-[36em] w-full mx-auto'>
+        <img src='/assets/hero.svg' alt='' className='w-full' />
       </div>
     </section>
   );
